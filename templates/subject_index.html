@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<title>{{school_descr}}</title>
+<br>
+<br>
+<div class="container">
+<div class="jumbotron" style="background-color:#F0F8FF; text-align:center">
+<h1> {{school_code}} : {{school_descr}}</h1>
+</div></div>
+
+<p><h2>Please choose a Subject</h2></p>
+
+<div class="container">
+    <table align="center" class="table table-hover" style="width:auto">
+    <thead>
+    	<tr><td>School Description</td><td>School Code</td></tr>
+    </thread>
+    {% for subject in subjects %}
+        <tr><td><a href="/{{term_code}}/{{school_code}}/{{subject['SubjectCode']}}"><button class="btn btn-primary">{{ subject['SubjectCode'] }}</button></a></td><td>{{ subject['SubjectDescr'] }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+
+{% endblock %}

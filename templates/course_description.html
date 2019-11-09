@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+{% extends "base.html" %}
+{% block content %}
+<title>{{subject_code}} {{catalog_number}}</title>
+<br>
+<br>
+<div class="container" style="text-align:center">
+<div class="jumbotron" style="background-color:#F0F8FF">
+<h1>{{subject_code}} {{catalog_number}}: {{Course_Title}}</h1>
+</div></div>
+
+
+<script type="text/javascript">
+// Popup window code - example & tutorials Courtesy of quackit.com
+function newPopup(url) {
+    popupWindow = window.open(
+        url,'popUpWindow','height=550,width=600,left=10,top=10,resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
+}
+</script>
+
+<div class="container" style="text-align:center">
+    <h2>Course Description:</h2>
+    <p>
+    {{Description}} <br> <br>
+    </p>
+
+    <h2>Section Information:</h2>
+    <h3>Please click a section for meeting information!</h3>
+</div>
+<div class="container" style="text-align:center">
+
+    {%for section in sections%}
+    <br>
+    <div>
+        <a href="JavaScript:newPopup('/{{term_code}}/{{school_code}}/{{subject_code}}/{{catalog_number}}/{{section}}/meetings');"> <button class="btn btn-primary"><h2 style="color:white">  Section {{section}} : {{sectionDetails[section]["SectionType"]}} </h2> </button> </a>
+    </div>
+        <table align="center" class="table table-hover" style="width:auto"> </thead>
+        <tr><td>Session Description</td><td>{{sectionDetails[section]["SessionDescr"]}}</td></tr>
+        <tr><td>Days</td><td>{{meetings[section]["Days"]}}</td></tr>
+        <tr><td>Times</td><td>{{meetings[section]["Times"]}}</td></tr>
+        <tr><td>Open Seats</td><td>{{sectionDetails[section]["AvailableSeats"]}}</td></tr>
+        {% if sectionDetails[section]["CourseTopic"]%}
+        <tr><td>Course Topic</td><td>{{sectionDetails[section]["CourseTopic"]}}</td></tr>
+        {%endif%}
+        <tr><td>Credit Hours</td><td>{{sectionDetails[section]["CreditHours"]}}</td></tr>
+        <tr><td>Enrollment Status</td><td>{{sectionDetails[section]["EnrollmentStatus"]}}</td></tr>
+        {% if sectionDetails[section]["EnrollmentStatus"] == "Wait List" %}
+        <tr><td>Wait List Total</td><td>{{sectionDetails[section]["WaitTotal"]}}</td></tr>
+        {%endif%}
+        </table>
+    {%endfor%}
+
+</div>
+{% endblock %}
+
+
+

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<title>Coursesquirrel Get!</title>
+
+<br>
+<br>
+<div class="container"><div class="jumbotron" style="background-color:#F0F8FF"><h1> Welcome to CourseSquirrel! </h1></div></div>
+
+<div class="dropdown" style="text-align:center">
+<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Select a Term<span class="caret"></span></button>
+<ul class="dropdown-menu" style="text-align:center">
+{% for term in terms %}
+<li><a href="/{{term['TermCode']}}">{{term['TermDescr']}}</a></li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock %}
+
+

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+
+<title>{{subject_code}}</title>
+<br>
+<br>
+<div class="container" style="text-align:center">
+<div class="jumbotron" style="background-color:#F0F8FF">
+<h1> {{subject_code}} : {{subject_descr}} </h1>
+</div></div>
+
+<div class="container">
+    <h2>Please choose a course to view</h2>
+    <table align="center" class="table table-hover" style="width:auto"><thead><tr><td>Course Number</td><td>Course Name</td></tr></thead>
+    {% for catalog in catalogs %}
+    	<tr><td><a href="/{{term_code}}/{{school_code}}/{{subject_code}}/{{catalog['CatalogNumber']}}"><button class="btn btn-primary">{% print subject_code %}
+        {{ catalog['CatalogNumber'] }}</button></a></td>
+        <td>{{ catalog['CourseTitle'] }}</td></tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}

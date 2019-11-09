@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<title>{{subject_code}} {{catalog_number}} : {{section}}</title>
+<br>
+<br>
+<div class="container">
+<div class="jumbotron" style="background-color:#F0F8FF">
+<h1>{{subject_code}} {{catalog_number}} : {{course_title}}</h1>
+</div></div>
+<div class="container">
+<div class="row">
+    <div class="col-sm-6">
+    <table class="table table-hover" style="width:auto"><thead><tr><h3 style="text-align:left">Meeting Information for {{lecType}} {{section}}: </h3></tr></thead>
+    {%for i in Instructors%}
+    <tr><td>{{Instructors[i]["InstructorRole"]}}</td><td>{{Instructors[i]["FirstName"]}} {{Instructors[i]["LastName"]}}</td></tr>
+    {%endfor%}
+    <tr><td>Days</td><td>{{meetings["Days"]}}</td></tr>
+    <tr><td>Time</td><td>{{meetings["Times"]}}</td></tr>
+    <tr><td>Start Date</td><td>{{meetings["StartDate"]}}</td></tr>
+    <tr><td>End Date</td><td>{{meetings["EndDate"]}}</td></tr>
+    <tr><td>Location</td><td>{{meetings["Location"]}}</td></tr>
+    {% if meetings["TopicDescr"] %}
+    <tr><td>Topic</td><td>{{meetings["TopicDescr"]}}</td></tr>
+    {%endif%}
+
+	</table>
+    <button> Backpack! </button>
+    </div>
+    <div class="col-sm-6">
+	<br>
+
+	<iframe
+        width="600"
+        height="450"
+        frameborder="0" style="border:0"
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCSHtsIc2sEK5DPb1zl8Jk-ASRggL4bxjQ&q={{Location}},Ann+Arbor,MI" allowfullscreen>
+    </iframe>
+    </div>
+
+</div>
+</div>
+
+{% endblock %}

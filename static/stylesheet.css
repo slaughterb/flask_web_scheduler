@@ -1,0 +1,50 @@
+@import "/templates/bootstrap.min.css";
+button {
+	color : green;
+}
+
+head {
+	margin-top: 25px;
+}
+
+body {
+	background-color: default;
+}
+
+h1 {
+	color : darkblue;
+	margin-left: 20px;
+	text-align: center;
+	font-weight: bold;
+}
+
+h2, h3 {
+	color : #006699;
+	text-align: center;
+	margin-left: 12px;
+	font-family: Arial;
+}
+
+td, thead {
+
+	padding: 15px;
+	text-align: left;
+	font-family: arial;
+	border:none;
+}
+
+td {
+	border:none;
+}
+
+table {
+	border-color : lightblue;
+	border-width : auto ;
+	border-size : 0;
+	width: auto;
+	border-collapse: collapse;
+}
+
+.dropdown{text-align: center;}
+.button, .dropdown-menu{margin:10px auto;}
+.dropdown-menu{width:200px; left:50%; margin-left: -100px}

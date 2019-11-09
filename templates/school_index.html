@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content %}
+<title>Term {{term_code}}</title>
+<br>
+<br>
+<div style="text-align:center" class="container">
+<div class="jumbotron" style="background-color:#F0F8FF">
+<h1> Showing Schools for {{term_descr}} </h1>
+</div>
+</div>
+
+
+<p style="font-family:Arial; text-align:center"><h2>Please pick a school</h2></p>
+
+
+<div style="text-align:center" class="container">
+    <table align="center" class="table table-hover" style="width:auto">
+    <thead>
+    	<tr><td>School Description</td><td>Shchool Code</td></tr>
+    </thead>
+    {% for school in schools %}
+        <tr><td>{{school['SchoolDescr'] }}</td>
+        <td><a href="/{{term_code}}/{{school['SchoolCode']}}"><button class="btn btn-primary">{{ school['SchoolCode'] }}</button></a></td></tr>
+    {% endfor %}
+    </table>
+</div>
+
+
+{% endblock %}
+
+
