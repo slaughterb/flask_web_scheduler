@@ -288,19 +288,6 @@ def get_location_info(locAbbrev):
         location = "University of Michigan"
     return location
 
-''' In Construction: '''
-'''
-def teacher_info(): 
-    teacherInfo = {}
-    url = 'http://www.ratemyprofessors.com/search.jsp?queryBy=schoolId&schoolName=University+of+Michigan&schoolID=1258&queryoption=TEACHER'
-    *** tutorial courtesy of docs.python-guide.org ***
-    page = requests.get(url)
-    tree = html.fromstring(page.content)
-    teacherInfo['TeacherRatings'] = tree.xpath('//span[@class="rating"]/text()').extract()
-    
-    return teacherInfo
-    '''
-
 def get_term_descr(TermCode):
 
     term_descr = 'It did not work'
